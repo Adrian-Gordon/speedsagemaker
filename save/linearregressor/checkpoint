@@ -1,0 +1,2 @@
+model_checkpoint_path: "mv_linear_regressor"
+all_model_checkpoint_paths: "mv_linear_regressor"
