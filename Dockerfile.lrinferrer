@@ -1,0 +1,29 @@
+FROM tensorflow/tensorflow:latest-py3
+
+COPY requirements.txt /
+
+
+RUN pip3 install numpy
+
+RUN pip3 install pandas
+
+RUN pip3 install sklearn
+
+COPY LinearRegressor/ /app
+
+RUN mkdir /app/save
+
+COPY save/*.* /app/save/ 
+
+
+
+COPY linear_regressor_inference_server.py /app/.
+
+COPY preprocess_racing_data.py /app/.
+
+WORKDIR /app
+
+EXPOSE 3002
+
+CMD ["python3", "linear_regressor_inference_server.py"]
+
