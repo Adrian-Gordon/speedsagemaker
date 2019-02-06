@@ -66,7 +66,7 @@ class LinearRegressorInferrer:
 
       result = self.scaler.inverse_transform(self.racing_data[['speeddiff','distancediff','goingdiff','weightdiff','datediff']])
 
-
+      print("W:" , sess.run(self.linear_regressor.W), "b: ", sess.run(self.linear_regressor.b))
       #print("result: ", result)
 
       return((result[0,0] + self.racing_data['speed1'])[0])
